@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 
 
-model = tf.keras.models.load_model(r'model_1')
+model = tf.keras.models.load_model(r'model_1.h5')
 
 
 st.title('Deepfakes Classification - Images')
