@@ -35,5 +35,7 @@ if uploaded_file is not None:
     st.subheader("Prediction Probabilities:")
     for i, class_label in pred_dict.items():
         st.write(f"{class_label}: {prediction[0][i]:.4f}")
+    
+    st.balloon()
 
 
