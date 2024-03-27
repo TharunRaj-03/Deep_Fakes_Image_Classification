@@ -26,16 +26,23 @@ if uploaded_file is not None:
     image_array = np.expand_dims(image_array, axis=0)
     prediction = model.predict(image_array)
 
-    pred_dict = {0: 'Fake', 1: 'Original'}
-    predicted_class = pred_dict[np.argmax(prediction)]
-
-    st.subheader("Prediction:")
-    st.success(predicted_class)
-
-    st.subheader("Prediction Probabilities:")
-    for i, class_label in pred_dict.items():
-        st.write(f"{class_label}: {prediction[0][i]:.4f}")
+    color_dict = {0: 'red', 1: 'green'}
     
+    # Mapping of class labels to their corresponding class names
+    pred_dict = {0: 'Fake', 1: 'Original'}
+    
+    # Getting the predicted class
+    predicted_class = pred_dict[np.argmax(prediction)]
+    
+    # Displaying the predicted class with the corresponding color
+    st.subheader("Prediction:")
+    st.markdown(f'<font color="{color_dict[np.argmax(prediction)]}">{predicted_class}</font>', unsafe_allow_html=True)
+    
+    # Displaying prediction probabilities for each class
+    st.subheader("Prediction Probabilities:")
+    
+for i, class_label in pred_dict.items():
+    st.write(f"{class_label}: {prediction[i]:.4f}")
     st.balloons()
 
 
