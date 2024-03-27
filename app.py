@@ -8,7 +8,7 @@ import cv2
 model = tf.keras.models.load_model(r'model_1_h5.h5')
 
 
-st.title('Deepfakes Classification - Images')
+st.title('Deep fake Image Classification')
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
