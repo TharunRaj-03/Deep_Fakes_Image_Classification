@@ -41,8 +41,9 @@ if uploaded_file is not None:
     # Displaying prediction probabilities for each class
     st.subheader("Prediction Probabilities:")
     
-for i, class_label in pred_dict.items():
-    st.write(f"{class_label}: {prediction[i]:.4f}")
+    for i, class_label in pred_dict.items():
+        st.write(f"{class_label}: {prediction[i]:.2f}")
+
     st.balloons()
 
 
